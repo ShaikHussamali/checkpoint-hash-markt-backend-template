@@ -1,9 +1,11 @@
-const express = require("express");
-const router=express.Router();
+import { Router } from "express";
+const router = Router();
 
-const {signin}=require('../controllers/auth');
+import { handlelogout, handlesignin, handlesignup } from '../controllers/auth.js';
 
-router.post('/signin',signin);
+router.post('/d/signin', handlesignin); //route will be used for logging in a user.
+router.post("/signup", handlesignup);//route will be used for signing up a user.
+router.get("/logout", handlelogout); //route will be used for logging out a user.
 
 
-module.exports=router;
+export default router;
